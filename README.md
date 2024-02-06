@@ -1,5 +1,6 @@
 # cartpole-knode-mpc
 KNODE-MPC: Neural ODE based Predictive Controller for the Cartpole System.
+
 Ved Radhakrishnan,
 Conestoga High School, Berwyn, PA
 Mentored by Mr. KongYao Chee, PhD student and Dr. George Pappas, Professor and Chair
