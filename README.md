@@ -13,11 +13,13 @@ handling system uncertainties and nonlinear dynamics, we implemented a hybrid mo
 approach that integrates a neural ordinary differential equations (NODE) model with traditional
 physics-based models. This integration aims to capture the uncertainties inherent in the cartpole
 system more accurately and data-efficiently than either approach alone.
+
 By adopting a deep learning tool, specifically the KNODE, we augment the nominal physics-
 based model of the cartpole system with a neural network learned from simulated data. This
 hybrid model is then incorporated into a Linear Quadratic Regulator to form the KNODE-MPC,
 designed to optimize the control actions over a prediction horizon while accounting for the
 learned dynamics and uncertainties.
+
 Preliminary validation of this model was conducted through extensive simulations with additional
 introduced uncertainties. The results of the hybrid model demonstrate an enhancement in
 trajectory tracking performance, highlighting its superior ability to maintain the stability of the
