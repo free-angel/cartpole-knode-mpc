@@ -1,11 +1,11 @@
 from torch import nn
 import torch
 
-import mpc1
+
 from mpc1 import mpc
 from mpc1.mpc import QuadCost, LinDx, GradMethods
 
-from mpc1.env_dx import cartpole
+from cartpole.env_dx import cartpole
 
 import numpy as np
 

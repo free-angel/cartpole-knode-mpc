@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+import os
+os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
 
 import torch
 from torch.autograd import Function, Variable
@@ -8,15 +10,19 @@ from torch.nn.parameter import Parameter
 
 import numpy as np
 
-from mpc import util
+# import sys
+# sys.path.append("E:\pycharm\cartpole-knode-mpc\cartpole\mpc1")
+
+from . import utils
 
 import os
 
 import shutil
 FFMPEG_BIN = shutil.which('ffmpeg')
+print(FFMPEG_BIN)
 
 import matplotlib
-matplotlib.use('Agg')
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 plt.style.use('bmh')
 
@@ -96,7 +102,7 @@ class CartpoleDx(nn.Module):
         return state
 
     def get_frame(self, state, ax=None):
-        state = util.get_data_maybe(state.view(-1))
+        state = utils.get_data_maybe(state.view(-1))
         assert len(state) == 5
         x, dx, cos_th, sin_th, dth = torch.unbind(state)
         gravity, masscart, masspole, length = torch.unbind(self.params)
@@ -128,7 +134,7 @@ if __name__ == '__main__':
     n_batch, T = 8, 50
     u = torch.zeros(T, n_batch, dx.n_ctrl)
     xinit = torch.zeros(n_batch, dx.n_state)
-    th = 1.
+    th = -0.1
     xinit[:,2] = np.cos(th)
     xinit[:,3] = np.sin(th)
     x = xinit

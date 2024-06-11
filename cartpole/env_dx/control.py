@@ -11,11 +11,12 @@ from torch.nn.parameter import Parameter
 import numpy as np
 
 import os
+import mpc1
 
-from mpc import mpc, util
+from mpc1 import mpc, util
 from mpc.mpc import GradMethods
 import mpc.util as eutil
-from mpc.env_dx import pendulum, cartpole
+from mpc1.env_dx import pendulum, cartpole
 
 import matplotlib
 matplotlib.use('Agg')
@@ -24,7 +25,7 @@ plt.style.use('bmh')
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--env', type=str, default='pendulum')
+    parser.add_argument('--env', type=str, default='cartpole')
     args = parser.parse_args()
 
     n_batch = 1
