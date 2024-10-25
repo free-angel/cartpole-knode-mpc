@@ -5,7 +5,7 @@ import mpc1
 from mpc1 import mpc
 from mpc1.mpc import QuadCost, LinDx, GradMethods
 
-from mpc1.env_dx import cartpole
+from env_dx import cartpole
 
 import matplotlib
 matplotlib.use('Qt5Agg')  # Set the backend to TkAgg

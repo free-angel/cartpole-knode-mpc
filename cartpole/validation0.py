@@ -10,7 +10,7 @@ from torchdiffeq import odeint
 import mpc1
 from mpc1 import mpc
 from mpc1.mpc import QuadCost, LinDx, GradMethods
-from mpc1.env_dx import cartpole
+from env_dx import cartpole
 from nn_models1 import NominalModel, UncertaintyModel, HybridModel
 
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')

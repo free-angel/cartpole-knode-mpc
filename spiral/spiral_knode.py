@@ -19,7 +19,7 @@ parser.add_argument('--niters', type=int, default=2000)
 parser.add_argument('--test_freq', type=int, default=20)
 parser.add_argument('--viz', action='store_true')
 parser.add_argument('--gpu', type=int, default=0)
-parser.add_argument('--adjoint', action='store_true')
+parser.add_argument('--adjoint', action='store_true',default=False)
 args = parser.parse_args()
 
 if args.adjoint:
@@ -56,6 +56,7 @@ for idx in range(num_traj):
     
     true_y_list.append(true_y)
 
+# print(true_y.shape)
 
 def get_batch(t, true_y, data_size, num_traj, batch_time, device):
     # s = torch.from_numpy(np.random.choice(np.arange(args.data_size - args.batch_time, dtype=np.int64), args.batch_size, replace=False))

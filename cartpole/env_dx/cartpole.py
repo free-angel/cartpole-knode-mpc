@@ -90,6 +90,7 @@ class CartpoleDx(nn.Module):
                                      total_mass))
         xacc = cart_in - polemass_length * th_acc * cos_th / total_mass
 
+        # 利用欧拉方法进行离散化操作。
         x = x + self.dt * dx
         dx = dx + self.dt * xacc
         th = th + self.dt * dth

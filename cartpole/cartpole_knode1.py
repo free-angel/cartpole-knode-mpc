@@ -11,7 +11,7 @@ import mpc1
 from mpc1 import mpc
 from mpc1.mpc import QuadCost, LinDx, GradMethods
 
-from mpc1.env_dx import cartpole
+from env_dx import cartpole
 
 from torchdiffeq import odeint
 
@@ -89,6 +89,7 @@ class TrueCartpoleDynamics(nn.Module):
         # add random noise
         noise = torch.randn_like(state) * self.noise_level
         state += noise
+        # 把控制变量收集起来。
 
         print(f"True Force: {next_action.item():.2f}N, cos theta: {state[2]:.2f}, sine theta: {state[3]:.2f}")
         return (state - y) / self.cartpole_model.dt

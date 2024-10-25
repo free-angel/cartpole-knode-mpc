@@ -81,7 +81,6 @@ class NominalModel(nn.Module):
         # return state
         return (state - y) / self.cartpole_model.dt
 
-    
 
 class UncertaintyModel(nn.Module):
     def __init__(self, state_dim, *, hidden_dim=50):
